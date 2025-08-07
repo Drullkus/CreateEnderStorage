@@ -144,6 +144,7 @@ dependencies {
 
     runtimeOnly "curse.maven:suggestion-provider-fix-469647:5598604"
     runtimeOnly "curse.maven:create-328085:6641610"
+    runtimeOnly "curse.maven:codechicken-lib-1-8-242818:6583751"
     runtimeOnly "curse.maven:ender-storage-1-8-245174:6159037"
 }
 
