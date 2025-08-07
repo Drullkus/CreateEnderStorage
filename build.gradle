@@ -19,6 +19,14 @@ group = mod_group_id
 
 repositories {
     // Add here additional repositories if required by some of the dependencies below.
+
+    maven {
+        name 'Curseforge Maven' // Jade
+        url "https://www.cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
 }
 
 base {
@@ -133,6 +141,10 @@ dependencies {
     // For more info:
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
+
+    runtimeOnly "curse.maven:suggestion-provider-fix-469647:5598604"
+    runtimeOnly "curse.maven:create-328085:6641610"
+    runtimeOnly "curse.maven:ender-storage-1-8-245174:6159037"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
