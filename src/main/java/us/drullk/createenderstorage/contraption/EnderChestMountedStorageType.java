@@ -1,6 +1,6 @@
 package us.drullk.createenderstorage.contraption;
 
-import codechicken.enderstorage.tile.TileFrequencyOwner;
+import codechicken.enderstorage.tile.TileEnderChest;
 import com.simibubi.create.api.contraption.storage.item.MountedItemStorageType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -19,8 +19,8 @@ public class EnderChestMountedStorageType extends MountedItemStorageType<EnderCh
 
     @Override
     public @Nullable EnderChestMountedStorage mount(Level level, BlockState blockState, BlockPos blockPos, @Nullable BlockEntity blockEntity) {
-        if (blockEntity instanceof TileFrequencyOwner enderChest)
-            return new EnderChestMountedStorage(enderChest.getFrequency());
+        if (blockEntity instanceof TileEnderChest enderChest)
+            return new EnderChestMountedStorage(enderChest.getFrequency(), enderChest.rotation);
 
         return null;
     }

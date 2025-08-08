@@ -20,7 +20,10 @@ group = mod_group_id
 repositories {
     // Add here additional repositories if required by some of the dependencies below.
 
+    maven { url = "https://raw.githubusercontent.com/Fuzss/modresources/main/maven" } // NeoForge config api port, needed by ponder
+    maven { url = "https://maven.createmod.net" } // Ponder
     maven { url = "https://maven.ithundxr.dev/snapshots" } // Registrate
+    maven { url = "https://chickenbones.net/maven/" } // CCL, Ender Storage
     maven {
         name 'Curseforge Maven'
         url "https://www.cursemaven.com"
@@ -143,13 +146,17 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
-    implementation "curse.maven:suggestion-provider-fix-469647:${suggestion_provider_fileid}"
+    implementation("curse.maven:suggestion-provider-fix-469647:${suggestion_provider_fileid}")
 
     implementation("com.tterrag.registrate:Registrate:${registrate_version}")
+    compileOnly("net.createmod.ponder:Ponder-NeoForge-${minecraft_version}:${ponder_version}")
     implementation("curse.maven:create-328085:${create_fileid}")
 
-    implementation("curse.maven:codechicken-lib-1-8-242818:${ccl_fileid}")
-    implementation("curse.maven:ender-storage-1-8-245174:${ender_storage_fileid}")
+    implementation("io.codechicken:CodeChickenLib:${minecraft_version}-${ccl_version}")
+    implementation("io.codechicken:EnderStorage:${minecraft_version}-${ender_storage_version}")
+
+    runtimeOnly("curse.maven:guideme-1173950:${guideme_fileid}")
+    runtimeOnly("curse.maven:applied-energistics-2-223794:${ae2_fileid}")
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

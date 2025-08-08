@@ -8,6 +8,7 @@ import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.level.block.Block;
+import net.neoforged.bus.api.IEventBus;
 import org.slf4j.Logger;
 
 import com.mojang.logging.LogUtils;
@@ -27,12 +28,16 @@ public class CreateEnderStorage {
     static final TagKey<Block> ENDER_CHEST_TAG = TagKey.create(Registries.BLOCK, modId("_ender_chest"));
     static final TagKey<Block> ENDER_TANK_TAG = TagKey.create(Registries.BLOCK, modId("_ender_tank"));
 
-    public static final RegistryEntry<MountedItemStorageType<?>, EnderChestMountedStorageType> ENDER_CHEST = REGISTRATE.mountedItemStorage("ender_chest", () -> new EnderChestMountedStorageType())
+    public static final RegistryEntry<MountedItemStorageType<?>, EnderChestMountedStorageType> ENDER_CHEST = REGISTRATE.mountedItemStorage("ender_chest", EnderChestMountedStorageType::new)
             .associateBlockTag(ENDER_CHEST_TAG)
             .register();
-    public static final RegistryEntry<MountedFluidStorageType<?>, EnderTankMountedStorageType> ENDER_TANK = REGISTRATE.mountedFluidStorage("ender_tank", () -> new EnderTankMountedStorageType())
+    public static final RegistryEntry<MountedFluidStorageType<?>, EnderTankMountedStorageType> ENDER_TANK = REGISTRATE.mountedFluidStorage("ender_tank", EnderTankMountedStorageType::new)
             .associateBlockTag(ENDER_TANK_TAG)
             .register();
+
+    public CreateEnderStorage(IEventBus modBus) {
+        REGISTRATE.registerEventListeners(modBus);
+    }
 
     public static ResourceLocation modId(String path) {
         return ResourceLocation.fromNamespaceAndPath(MODID, path);

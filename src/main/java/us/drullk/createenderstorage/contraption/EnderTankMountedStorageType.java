@@ -1,6 +1,6 @@
 package us.drullk.createenderstorage.contraption;
 
-import codechicken.enderstorage.tile.TileFrequencyOwner;
+import codechicken.enderstorage.tile.TileEnderTank;
 import com.simibubi.create.api.contraption.storage.fluid.MountedFluidStorageType;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
@@ -16,8 +16,8 @@ public class EnderTankMountedStorageType extends MountedFluidStorageType<EnderTa
 
     @Override
     public @Nullable EnderTankMountedStorage mount(Level level, BlockState blockState, BlockPos blockPos, @Nullable BlockEntity blockEntity) {
-        if (blockEntity instanceof TileFrequencyOwner enderTank)
-            return new EnderTankMountedStorage(enderTank.getFrequency());
+        if (blockEntity instanceof TileEnderTank enderTank)
+            return new EnderTankMountedStorage(enderTank.getFrequency(), enderTank.rotation);
 
         return null;
     }
