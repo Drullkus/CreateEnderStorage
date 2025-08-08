@@ -25,6 +25,7 @@ public class CreateEnderStorage {
 
     private static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MODID);
 
+    // Instead of hard-referencing EnderStorageModContent blocks, they are referenced via tags instead to avoid load-order issues
     static final TagKey<Block> ENDER_CHEST_TAG = TagKey.create(Registries.BLOCK, modId("_ender_chest"));
     static final TagKey<Block> ENDER_TANK_TAG = TagKey.create(Registries.BLOCK, modId("_ender_tank"));
 
