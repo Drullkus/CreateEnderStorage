@@ -2,7 +2,7 @@ modLoader="javafml"
 loaderVersion="${loader_version_range}"
 license="${mod_license}"
 issueTrackerURL="https://github.com/Drullkus/CreateEnderStorage/issues"
-displayURL="https://change.me.to.your.mods.homepage.example.invalid/"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/create-ender-storage"
 
 [[mods]]
 modId="${mod_id}"
