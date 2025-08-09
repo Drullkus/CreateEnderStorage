@@ -23,7 +23,7 @@ public class CreateEnderStorage {
     public static final String MODID = "createenderstorage";
     public static final Logger LOGGER = LogUtils.getLogger();
 
-    private static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MODID);
+    static final CreateRegistrate REGISTRATE = CreateRegistrate.create(MODID);
 
     // Instead of hard-referencing EnderStorageModContent blocks, they are referenced via tags instead to avoid load-order issues
     static final TagKey<Block> ENDER_CHEST_TAG = TagKey.create(Registries.BLOCK, modId("_ender_chest"));
